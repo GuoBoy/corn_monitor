@@ -1,4 +1,7 @@
 */__pycache__
 .config.json
 database.db
+.idea
+corn_monitor
+corn_monitor.exe
 

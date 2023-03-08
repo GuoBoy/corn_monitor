@@ -1,15 +1,15 @@
 package db
 
 import (
-	"fmt"
-	"gorm.io/driver/sqlite"
+	"github.com/corn_monitor/config"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
 var Db *gorm.DB
 
 func init() {
-	db, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open(config.Cfg.Mysql), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
 	}
@@ -30,11 +30,12 @@ type LogModel struct {
 
 // Add 添加日志
 func (LogModel) Add(msgs ...any) {
-	var msg string
-	for _, s := range msgs {
-		msg = fmt.Sprintf("%s %v", msg, s)
-	}
-	Db.Create(&LogModel{Message: msg})
+	//var msg string
+	//for _, s := range msgs {
+	//	msg = fmt.Sprintf("%s %v", msg, s)
+	//}
+	//Db.Create(&LogModel{Message: msg})
+
 }
 
 // Load 加载日志

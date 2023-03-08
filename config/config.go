@@ -19,6 +19,7 @@ type GoldModel struct {
 type CfgModel struct {
 	PushPlus PushPlusModel `json:"pushplus"`
 	Gold     GoldModel     `json:"gold"`
+	Mysql    string        `json:"mysql"`
 }
 
 var Cfg CfgModel
